@@ -8,7 +8,7 @@
     <data>
         <variable
             name="shoeDetailsViewModel"
-            type="com.udacity.shoestore.viewModels.ShoeDetailViewModel" />
+            type="com.udacity.shoestore.viewModels.ShoeListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,9 +24,9 @@
             android:id="@+id/til_shoeDetails_name"
             >
             <EditText
-                android:id="@+id/et_shoeDetails_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={shoeDetailsViewModel.newShoe.name}"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,10 +38,10 @@
             android:hint="@string/size"
             >
             <EditText
-                android:id="@+id/et_shoeDetails_size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
+                android:text="@={``+ shoeDetailsViewModel.newShoe.size}"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,9 +53,9 @@
             android:hint="@string/company"
             >
             <EditText
-                android:id="@+id/et_shoeDetails_company"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={shoeDetailsViewModel.newShoe.company}"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,9 +67,9 @@
             android:hint="@string/description"
             >
             <EditText
-                android:id="@+id/et_shoeDetails_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={shoeDetailsViewModel.newShoe.description}"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 

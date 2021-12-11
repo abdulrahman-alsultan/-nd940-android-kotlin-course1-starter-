@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -13,8 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.MainActivity
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.viewModels.ShoeDetailViewModel
 import com.udacity.shoestore.viewModels.ShoeListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,35 +32,24 @@ class ShoeDetail : Fragment() {
             false
         )
         val act = activity as MainActivity
+        setHasOptionsMenu(false)
+        act.toolbar.menu.clear()
 
         act.toolbar.title = "Shoe Details"
 
-        val viewModel = ShoeDetailViewModel()
+        binding.shoeDetailsViewModel = shoeListViewModel
 
-        binding.shoeDetailsViewModel = viewModel
-
-        viewModel.cancelButtonClicked.observe(viewLifecycleOwner, Observer {
+        shoeListViewModel.cancelButtonClicked.observe(viewLifecycleOwner, Observer {
             if(it == true){
                 findNavController().navigate(ShoeDetailDirections.actionShoeDetailToShoeList())
-                viewModel.finishCanceling()
+                shoeListViewModel.finishCanceling()
             }
         })
 
-        viewModel.saveButtonClicked.observe(viewLifecycleOwner, Observer {
+        shoeListViewModel.saveButtonClicked.observe(viewLifecycleOwner, Observer {
             if(it == true){
-                val name = binding.etShoeDetailsName.text
-                val size = binding.etShoeDetailsSize.text
-                val company = binding.etShoeDetailsCompany.text
-                val desc = binding.etShoeDetailsDescription.text
-                if(name.isNotEmpty() && size.isNotEmpty() && company.isNotEmpty() && desc.isNotEmpty()){
-                    shoeListViewModel.addNewShoe(Shoe(name.toString(), size.toString().toDouble(), company.toString(), desc.toString()))
-                    viewModel.finishCanceling()
-                    Toast.makeText(requireContext(), "Added successfully", Toast.LENGTH_LONG).show()
-                    findNavController().popBackStack()
-                }
-                else{
-                    Toast.makeText(requireContext(), "All fields are requirements", Toast.LENGTH_LONG).show()
-                }
+                findNavController().navigate(ShoeDetailDirections.actionShoeDetailToShoeList())
+                shoeListViewModel.finishSaving()
             }
         })
 

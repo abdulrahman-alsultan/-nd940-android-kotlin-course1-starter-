@@ -29,10 +29,9 @@ class Login : Fragment() {
             container,
             false
         )
-
-
-
         val act = activity as MainActivity
+        setHasOptionsMenu(false)
+        act.toolbar.menu.clear()
 
         val backBtn = object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {

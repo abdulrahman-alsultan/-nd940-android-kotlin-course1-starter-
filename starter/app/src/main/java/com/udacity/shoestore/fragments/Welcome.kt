@@ -29,6 +29,8 @@ class Welcome : Fragment() {
         )
 
         val act = activity as MainActivity
+        setHasOptionsMenu(false)
+        act.toolbar.menu.clear()
 
         act.toolbar.title = "Welcome"
 

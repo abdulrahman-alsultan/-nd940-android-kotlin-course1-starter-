@@ -28,6 +28,8 @@ class Instruction : Fragment() {
             false
         )
         val act = activity as MainActivity
+        setHasOptionsMenu(false)
+        act.toolbar.menu.clear()
 
         act.toolbar.title = "Instruction"
 
