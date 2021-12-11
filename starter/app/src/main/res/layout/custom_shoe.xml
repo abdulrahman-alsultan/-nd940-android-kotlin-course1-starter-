@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--    it use to position the views in screen    -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -15,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+<!--    to make company name and shoe size horizontally-->
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"

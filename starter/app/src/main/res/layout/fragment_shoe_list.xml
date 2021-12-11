@@ -11,6 +11,8 @@
             type="com.udacity.shoestore.viewModels.ShoeListViewModel" />
     </data>
 
+    <!--    it use to position the views in screen and have floating action button at the right bottom of the screen   -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

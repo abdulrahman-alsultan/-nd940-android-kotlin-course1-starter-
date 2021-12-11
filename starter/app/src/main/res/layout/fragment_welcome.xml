@@ -9,6 +9,8 @@
             type="com.udacity.shoestore.viewModels.WelcomeViewModel" />
     </data>
 
+    <!--    it use to position the views in screen    -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
